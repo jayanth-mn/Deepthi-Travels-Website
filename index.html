@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Deepthi TRAVELS</title>
+    
+  </head>
+  
+
+  <body>
+    <!--header-->
+    <div id="header">
+      <div class="header container">
+        <div class="navbar">
+          <div class="brand">
+            <a href="#hero"><img src="img/Deepthi_travels_logo.jpeg" alt="Deepthi_Travels"></a>
+          </div>
+          <div class="navlist">
+            <div class="hamburger"><div class="bar"></div></div>
+            <ul >
+              <li><a href="#hero" data-after="Home">Home</a></li>
+              <li><a href="services.html" data-after="Services">Services</a></li>
+              <li><a href="vehicle.html" data-after="Vehicles">Vehicles</a></li>
+              <li><a href="booknow.html" data-after="Book Now">Book Now</a></li>
+              <li><a href="#footerus" data-after="Contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--end of header-->
+    <div id="hero">
+      <div class="slider">
+      <div class="load"></div>
+      <div class="hero container">
+        <div>
+          <h1>You've choosen the Best Travels<span></span></h1>
+          <h1>Expert in Car Rentals, airport transfer, local/corporate travel, outstation packages <span></span></h1>
+          <h1>Get best quotes for sedan, Suv, Bus, luxury cars <span></span></h1>
+          <div class="autotype_container">
+          <h2 >Get best price for hotels and flights <span></span> </h1>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+</div>
+
+
+<section class="section_container booking_container" id="booknow">
+    <div class="booking_nav">
+        <span onclick="showForm('airportTransferForm', this)" id="airportSpan">Airport Transfer</span>
+        <span onclick="showForm('localCityForm', this)" id="localSpan" class="active">Local/City</span>
+        <span onclick="showForm('outstationForm', this)" id="outstationSpan">Outstation</span>
+        <span onclick="showForm('businessForm', this)" id="businessSpan">Business Class/V.I.P</span>
+    </div>
+    <form id="localCityForm" >
+      <div class="form_group">
+          <span><i class="ri-map-pin-line"></i></span>
+          <div class="input_content">
+              <div class="input_group">
+                  <input type="text" list="cities" id="cityInput" placeholder="Enter or select a city" required>
+                  <datalist id="cities">
+                      <option value="Mumbai">
+                      <option value="Delhi">
+                      <option value="Bangalore">
+                      <option value="Mysore">
+                      <option value="Pune">
+                      <option value="Chennai">
+                      <option value="Noida">
+                      <option value="Gurgaon">
+                      <option value="Lucknow">
+                      <option value="Telangana">
+                      <option value="Kochi">
+                      <!-- Add more cities of India here -->
+                  </datalist>
+              </div>
+              <p>Add Location</p>
+          </div>
+      </div>
+      
+      <div class="form_group">
+          <span><i class="ri-calendar-line"></i></span>
+          <div class="input_content">
+              <div class="input_group">
+                  <input type="date">
+                  <label>Date of Travel</label>
+              </div>
+              <p>Add Date</p>
+          </div>
+      </div>
+      <div class="form_group">
+          <span><i class="ri-time-line"></i></span>
+          <div class="input_content">
+              <div class="input_group">
+                  <input type="time">
+                  <label>Pick up Time</label>
+              </div>
+              <p>Add Time</p>
+          </div>
+      </div>
+      <button type="button" class="btn" id="searchButton"><i class="ri-search-line"></i></button>
+  </form>
+  
+  <form id="airportTransferForm" style="display: none;" >
+    <div class="form_group">
+      <span><i class="ri-plane-line"></i></span>
+      <div class="input_content">
+          <div class="input_group">
+            <input type="text" list="Airports" id="airportInput" placeholder="Enter or select an Airport" required>
+            <datalist id="Airports">
+                <option value="Kempegowda International Airport">
+                <option value="Indhira Gandhi International Airport">
+                <option value="Bangalore">
+                <option value="Mysore">
+                <option value="Pune">
+                <option value="Chennai">
+                <option value="Noida">
+                <option value="Gurgaon">
+                <option value="Lucknow">
+                <option value="Telangana">
+                <option value="Kochi">
+                <!-- Add more cities of India here -->
+            </datalist>
+          </div>
+          <p>Enter Airport Name</p>
+      </div>
+  </div>
+    <div class="form_group">
+      <span><i class="ri-map-pin-line"></i></span>
+      <div class="input_content">
+          <div class="input_group">
+              <input type="text" id="locationInput" oninput="handleInput(this.value)" >
+              <label>Pickup/Drop Location</label>
+          </div>
+          <p>Enter Location</p>
+      </div>
+  </div>
+    
+  <div class="form_group">
+      <span><i class="ri-calendar-line"></i></span>
+      <div class="input_content">
+          <div class="input_group">
+              <input type="date">
+              <label>Date of Travel</label>
+          </div>
+          <p>Add Date</p>
+      </div>
+  </div>
+  <div class="form_group">
+      <span><i class="ri-time-line"></i></span>
+      <div class="input_content">
+          <div class="input_group">
+              <input type="time">
+              <label>Pick up Time</label>
+          </div>
+          <p>Add Time</p>
+      </div>
+  </div>
+  <button type="button" class="btn" id="airportsearchButton" ><i class="ri-search-line"></i></button>
+
+  
+  
+  </form>
+  <form id="outstationForm" style="display: none;">
+  <h2  style="color:#3d5cb8; text-align: center;" >For Outstations Please contact <a href="https://wa.me/919880512156" target="_blank" style="color:#3d5cb8;">+91 9880512156</a></h2></form>
+  <form id="businessForm" style="display: none;"  ><h2  style="color:#3d5cb8; text-align: center;" >For Business Class Please contact <a href="https://wa.me/919880512156" target="_blank" style="color:#3d5cb8;">+91 9880512156</a></h2></form>
+    
+    </div>
+</section>
+    
+<script>
+  function handleInput(value) {
+    const label = document.getElementById('travelersLabel');
+    if (value.trim() !== '') {
+        label.classList.add('active');
+    } else {
+        label.classList.remove('active');
+    }
+  }
+function showForm(formId, element) {
+            const forms = document.getElementsByTagName('form');
+            for (let i = 0; i < forms.length; i++) {
+                forms[i].style.display = 'none';
+            }
+
+            const spans = document.getElementsByTagName('span');
+            for (let i = 0; i < spans.length; i++) {
+                spans[i].classList.remove('active');
+            }
+
+            document.getElementById(formId).style.display = 'flex';
+            element.classList.add('active');
+        }
+</script>
+
+<script>
+  document.getElementById('searchButton').addEventListener('click', function() {
+        const city = document.getElementById('cityInput').value;
+        
+        let url;
+
+        if (city === "Mumbai") {
+            
+                url = `https://example.com/mumbai-taxis-small?travelers=${travelers}`;
+            } 
+        else if (city === "Delhi") {
+            
+                url = `delhi.html`;
+            } 
+        else if (city === "Bangalore") {
+            
+                url = `Bangalore.html`;
+            
+        } 
+        else {
+            // Default case, redirect to a general taxis page
+            url = `https://example.com/taxis?city=${city}&travelers=${travelers}`;
+        }
+
+        window.location.href = url;
+    });
+
+    document.getElementById('airportsearchButton').addEventListener('click', function () {
+    const airport = document.getElementById('airportInput').value;
+    const travelers = document.getElementById('travelersInput').value;
+    
+    let destination = "";
+        if (airport.toLowerCase() === "kempegowda international airport") {
+            
+                destination = `Bangalore.html`;
+            
+        }
+        else if (airport.toLowerCase()=== "indhira gandhi international airport"){
+          
+                destination = 'vehicle.html';
+            
+        }
+        // Add more conditions for other airports if needed
+        window.location.href = destination;
+    
+});
+</script>
+
+
+    <script>
+        ScrollReveal({
+             reset:true,
+             distance: '100px',
+             duration: 600,
+             delay:50
+            });
+            ScrollReveal().reveal(' .section-title', {delay:200, origin: 'left'});
+            ScrollReveal().reveal('.sec-01, image, .info', {delay:300, origin: 'bottom'});
+            ScrollReveal().reveal('.text-box', {delay:300, origin: 'right'});
+            ScrollReveal().reveal('.sec-02 .image', {delay:300, origin: 'top'});
+            ScrollReveal().reveal('.text-box', {delay:300, origin: 'right'});
+    </script>
+
+<section id="vehiclelist">
+    <div class="body1">
+    <div class="vehicles-top">
+      <br>
+      <br>
+      
+        <h1 class="section-title" >Our <span style="color: black;">Features</span></h1>
+        
+        
+       </div>
+       
+    <div class="vehicles-bottom">
+        
+            <div class="taximodes_container" >
+                 <div class="card" style="height:400px; width: 250px;">
+                    <div class="card1" >
+                    <div class="imgbx">
+                        <img src="img/safetravels.jpeg" style="width:220px; height: 150px;">
+                    </div>
+                    <div class="contentbx">
+                        <h2>100% Safe</h2>
+                        <h3>Rest assured, as we prioritize your safety during all travels, ensuring worry-free and secure experiences at every step of the journey</h3>
+                        
+                    </div>
+                    </div>
+                 </div>
+            </div>
+
+            <div class="taximodes_container" >
+                <div class="card" style="height:400px; width: 250px;">
+                   <div class="card2" >
+                   <div class="imgbx">
+                       <img src="img/lotsoflocation.jpg" style="width:220px; height: 150px;">
+                   </div>
+                   <div class="contentbx">
+                       <h2>Lots of Locations</h2>
+                       <h3>Our operations span multiple diverse locations across the beautiful expanse of India, ensuring comprehensive coverage and accessibility</h3>
+                       
+                   </div>
+                   </div>
+                </div>
+           </div>
+
+           <div class="taximodes_container" >
+            <div class="card" style="height:400px; width: 250px;">
+               <div class="card3" >
+               <div class="imgbx">
+                   <img src="img/bestprice.jpg" style="width:220px; height: 150px;">
+               </div>
+               <div class="contentbx">
+                   <h2>Best Price Guaranteed</h2>
+                   <h3>We guarantee the best price, ensuring you get the most value for your money and a superior deal compared to other providers</h3>
+                   
+               </div>
+               </div>
+            </div>
+       </div>
+
+       <div class="taximodes_container" >
+        <div class="card" style="height:400px; width: 250px;">
+           <div class="card4" >
+           <div class="imgbx">
+               <img src="img/call-24-7.jpg" style="width:220px; height: 150px;">
+           </div>
+           <div class="contentbx">
+               <h2>24/7 Customer Support</h2>
+               <h3>Our dedicated team is available round the clock to assist you promptly with any inquiries, ensuring your needs are met at any time of the day</h3>
+               
+           </div>
+           </div>
+        </div>
+   </div>
+    </div>
+    
+
+
+
+
+
+
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in" >
+        <div class="textcontainer" style="margin-left: -250px;"  >
+        <div class="text-center" >
+          <h3>1000+</h3>
+          <p> Vehicles   </p>
+        </div>
+        <div class="text-center" >
+          <h3>5000+</h3>
+          <p>     Special Trips</p>
+        </div>
+        <div class="text-center" >
+          <h3>1000+</h3>
+          <p>Satisfied Clients</p>
+        </div>
+        <div class="text-center" >
+          <h3>15+</h3>
+          <p>Indian Cities</p>
+        </div>
+        
+        
+          
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+   
+
+    <!--start of contact us section-->
+    <body2>
+      
+    
+   <footer id="footerus">
+    <div class="container">
+      <div class="sec about us">
+        <h2>About Us</h2>
+        <p>Deepthi Travels is a trusted travel partner dedicated to providing seamless and secure travel experiences. With a commitment to safety, comfort, and efficiency, we ensure every journey is an unforgettable adventure. Discover the world with us and embrace a hassle-free travel experience</p>
+        <ul class="sci">
+          <li><a href="https://www.linkedin.com/company/deepthitravels/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+          <li><a href="https://maps.app.goo.gl/MF12VCSjnQRALXv59" target="_blank"><i class="fa-solid fa-location-dot"></i></a></li>
+          <li><a href="https://wa.link/zdkksf" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+          <li><a href="mailto:deepthitravelsblr@gmail.com"><i class="fa-solid fa-envelope"></i></a></li>
+        </ul>
+      </div>
+      <div class="sec quicklinks">
+        <h2>Support</h2>
+        <ul>
+          <li><a href="terms.html">Privacy Policy</a></li>
+            
+            <li><a href="terms.html">Terms & Conditions</a></li>
+        </ul>
+      </div>
+      <div class="sec contact us">
+        <h2>Contact Us</h2>
+        <ul class="info">
+          <li>
+            <span><i class="fa-solid fa-phone"></i></span><p><a href="tel:+91 9880512156">+91 9880512156</a></p>
+
+          </li>
+          <li>
+            <span><i class="fa-solid fa-envelope"></i></span><p><a href="mailto:deepthitravelsblr@gmail.com">deepthitravelsblr@gmail.com</a></p>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+   </footer>
+   
+
+   <div class="copyrightText">
+    <p>Copyright 2023 Deepthi Travels. All rights Reserved</p>
+   </div>
+  </body2>
+
+   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+    <script src="./app.js"></script>
+
+  </body>
+</html>
